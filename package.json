@@ -1,11 +1,12 @@
 {
   "name": "trjsx",
-  "version": "0.0.3",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.4",
+  "description": "true reactive js - rxjs like librarty",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
