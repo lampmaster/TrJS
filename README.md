@@ -51,6 +51,8 @@ interval(1000)
     .subscribe(x => console.log(`subscription ===> ${x}`)) // will emit only even numbers
 ```
 
+![](https://raw.githubusercontent.com/lampmaster/trjs/release-0.0.4/source/example.gif)
+
 ## Building/Testing
 
 - `npm build` build everything
