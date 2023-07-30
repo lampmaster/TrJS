@@ -12,7 +12,7 @@
 npm i trjsx
 ```
 
-In this example we make flow from any iterable data(from the string in this case), take only 2 first values and log it subscribe callback
+In this example we make flow from any iterable data(from the string in this case), take only 2 first values and log in subscribe callback
 
 ```ts
 import { from, take } from 'trjsx';
@@ -29,10 +29,26 @@ import { interval, filter, tap } from 'trjsx';
 
 interval(1000)
     .pipe(
-        tap(console.log) // you can log your flow
-        filter(x => x % 2 === 0)
+        tap(console.log) // log your flow
+        filter(x => x % 2 === 0) // pass only even numbers
     )
     .subscribe(x => console.log(x)) // will emit only even numbers
+```
+
+Also it is posible to create several flow from on observable
+
+```ts
+import { interval, filter, take } from 'trjsx';
+
+const $flow = interval(1000)
+
+$flow.pipe(
+    filter(x => x % 2 === 0)    
+).subscribe(console.log) // 0, 2, 4 ....
+
+$flow.pipe(
+    take(2)  
+).subscribe(console.log) // 0, 1 - after the second emited value subscription close
 ```
 
 ## Building/Testing
