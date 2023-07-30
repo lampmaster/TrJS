@@ -6,11 +6,10 @@ export function timer(delay: number) {
         let intervalId = setTimeout(() => {
             if (!subscriber.closed) {
                 subscriber.next(0)
-                clearTimeout(intervalId)
             }
+            clearTimeout(intervalId)
         }, delay)
     })
-
 
     return observable
 }
