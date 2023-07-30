@@ -34,25 +34,4 @@ export class Subscriber {
     get closed() {
         return this.#closed
     }
-
-    // [Symbol.iterator]() {
-    //     return {
-    //         next: (value) => {
-    //             if (!this.#closed) {
-    //                 this.#subsriptionCb(value)
-    //             }
-
-    //             return {done: this.#closed, value: value || undefined}
-    //         },
-    //         throw: (err) => {
-    //             this.#closed = true
-    //             return {done: this.#closed, value: err}
-
-    //         },
-    //         return: () => {
-    //             this.#closed = true
-    //             return {done: this.#closed, value: undefined}
-    //         }
-    //     }
-    // }
 }
