@@ -66,6 +66,50 @@ timer(1000).subscribe((x) => {
 
 ```
 
+## It is SCALABLE
+
+It is possible to create your own observables and operators to scale functionanlity
+
+Let's create **fromEvent** observable
+
+```ts
+import { Observable, Subscriber } from "../core"
+
+export function fromEvent(target: any, eventName: string) {
+    return new Observable((subscriber: Subscriber) => {
+        const listener = (event) => {
+            if (subscriber.closed) {
+                target.removeEventListener(eventName, listener)
+            } else {
+                subscriber.next(event)
+            }
+        }
+
+        target.addEventListener(eventName, listener)
+    })
+}
+```
+
+And **map** operator
+
+```ts
+import { Observable, Subscriber } from "../core"
+
+export const map = (cb: (x: unknown) => unknown) => (prevObservable: Observable) => {
+    return new Observable((subscriber: Subscriber) => {
+        const unsubscribe = prevObservable.subscribe((value: unknown) => {
+            if (subscriber.closed) {
+                unsubscribe()
+            } else {
+                subscriber.next(cb(value))
+            }
+        })
+    })
+}
+```
+
+
+
 ## Building/Testing
 
 - `npm build` build everything
