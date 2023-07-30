@@ -53,7 +53,7 @@ interval(1000)
 
 ![](https://raw.githubusercontent.com/lampmaster/trjs/release-0.0.4/source/example.gif)
 
-Every observable return **unsubscribe** function on subscribe call
+Every observable returns **unsubscribe** function on subscribe call
 
 ```ts
 import { interval, timer } from 'trjsx';
