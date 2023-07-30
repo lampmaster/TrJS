@@ -53,6 +53,19 @@ interval(1000)
 
 ![](https://raw.githubusercontent.com/lampmaster/trjs/release-0.0.4/source/example.gif)
 
+Every observable return **unsubscribe** function on subscribe call
+
+```ts
+import { interval, timer } from 'trjsx';
+
+const unsubscribe = interval(1000).subscribe(console.log)
+
+timer(1000).subscribe((x) => {
+    unsubscribe()
+})
+
+```
+
 ## Building/Testing
 
 - `npm build` build everything
