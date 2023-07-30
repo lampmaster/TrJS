@@ -35,7 +35,7 @@ interval(1000)
     .subscribe(x => console.log(x)) // will emit only even numbers
 ```
 
-Also it is posible to create several flow from on observable
+Also it is posible to create several flows from one observable
 
 ```ts
 import { interval, filter, take } from 'trjsx';
