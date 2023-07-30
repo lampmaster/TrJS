@@ -1,6 +1,6 @@
 {
   "name": "trjsx",
-  "version": "0.0.4-2",
+  "version": "0.0.4-4",
   "description": "true reactive js - rxjs like librarty",
   "main": "dist/index.js",
   "scripts": {

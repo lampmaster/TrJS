@@ -22,19 +22,6 @@ from('1234')
     .subscribe(x => console.log(x)) // will emit only 1, 2
 ```
 
-In this example we can easily filter data with **filter** operator in you flow and even log values with **tap** operator
-
-```ts
-import { interval, filter, tap } from 'trjsx';
-
-interval(1000)
-    .pipe(
-        tap(console.log) // log your flow
-        filter(x => x % 2 === 0) // pass only even numbers
-    )
-    .subscribe(x => console.log(x)) // will emit only even numbers
-```
-
 Also it is posible to create several flows from one observable
 
 ```ts
@@ -50,6 +37,21 @@ $flow.pipe(
     take(2)  
 ).subscribe(console.log) // 0, 1 - after the second emited value subscription close
 ```
+
+In this example we can easily filter data with **filter** operator in you flow and even log values with **tap** operator
+
+```ts
+import { interval, filter, tap } from 'trjsx';
+
+interval(1000)
+    .pipe(
+        tap(x => console.log(`log value ${x}`)), // log your flow
+        filter((x: any) => x % 2 === 0)
+    )
+    .subscribe(x => console.log(`subscription ===> ${x}`)) // will emit only even numbers
+```
+
+![](https://raw.githubusercontent.com/lampmaster/trjs/release-0.0.4/source/example.gif)
 
 ## Building/Testing
 
