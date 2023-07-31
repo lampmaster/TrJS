@@ -75,21 +75,27 @@ Let's create **fromEvent** observable
 ```ts
 import { Observable, Subscriber } from "../core"
 
-export function fromEvent(target: any, eventName: string) {
+const EE = require('event-emitter')
+cosnt ee = new EE()
+
+export function fromEvent(target: EE, eventName: string) {
     return new Observable((subscriber: Subscriber) => {
         const listener = (event) => {
             if (subscriber.closed) {
-                target.removeEventListener(eventName, listener)
+                target.off(eventName, listener)
             } else {
                 subscriber.next(event)
             }
         }
 
-        target.addEventListener(eventName, listener)
+        target.on(eventName, listener)
     })
 }
 
-fromEvent(document, click).pipe(take(2)).subscribe(console.log)
+ee.emit('click', 1)
+ee.emit('click', 2)
+ee.emit('click', 3)
+fromEvent(ee, 'click').pipe(take(2)).subscribe(console.log) // 1, 2
 ```
 
 And **map** operator
