@@ -92,10 +92,10 @@ export function fromEvent(target: EE, eventName: string) {
     })
 }
 
-ee.emit('event', 1)
-ee.emit('event', 2)
-ee.emit('event', 3)
-fromEvent(document, 'click').pipe(take(2)).subscribe(console.log) // 1, 2
+ee.emit('click', 1)
+ee.emit('click', 2)
+ee.emit('click', 3)
+fromEvent(ee, 'click').pipe(take(2)).subscribe(console.log) // 1, 2
 ```
 
 And **map** operator
