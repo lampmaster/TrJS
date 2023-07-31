@@ -1,12 +1,14 @@
 {
   "name": "trjsx",
-  "version": "0.0.4-4",
+  "version": "0.0.4-5",
   "description": "true reactive js - rxjs like librarty",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build": "tsc"
+    "build": "npm run clear && npm i && tsc",
+    "publish:pack": "npm run build && npm publish",
+    "clear": "rm -rf dist"
   },
   "author": "",
   "license": "ISC",
