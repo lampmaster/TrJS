@@ -88,6 +88,8 @@ export function fromEvent(target: any, eventName: string) {
         target.addEventListener(eventName, listener)
     })
 }
+
+fromEvent(document, click).pipe(take(2)).subscribe(console.log)
 ```
 
 And **map** operator
@@ -106,6 +108,8 @@ export const map = (cb: (x: unknown) => unknown) => (prevObservable: Observable)
         })
     })
 }
+
+from([1, 2, 3]).pipe(map(x => x * 2)).subscribe(console.log) // 2, 4, 6
 ```
 
 
