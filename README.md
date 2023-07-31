@@ -89,7 +89,7 @@ export function fromEvent(target: any, eventName: string) {
     })
 }
 
-fromEvent(document, click).pipe(take(2)).subscribe(console.log)
+fromEvent(document, 'click').pipe(take(2)).subscribe(console.log)
 ```
 
 And **map** operator
