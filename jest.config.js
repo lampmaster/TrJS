@@ -9,6 +9,13 @@ module.exports = {
     "json",
     "node"
   ],
+  collectCoverageFrom: [
+    "src/**/*.{js,ts}",
+  ],
+  coveragePathIgnorePatterns: [
+    ".index.ts",
+    ".types.ts"
+],
   roots: [
     "<rootDir>/src"
   ],

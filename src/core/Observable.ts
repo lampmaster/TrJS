@@ -27,29 +27,4 @@ export class Observable {
     get subscriberClosed() {
         return this.#subscriber.closed
     }
-
-    // [Symbol.asyncIterator]() {
-    //     return {
-    //         [Symbol.asyncIterator]: () => {
-    //             return this
-    //         },
-
-    //         return: (value) => {
-    //             this.#done = true
-    //             return Promise.resolve({done: this.#done, value})
-    //         },
-
-    //         next: () => {
-    //             return new Promise((resolve) => {
-    //                 if (this.#done) {
-    //                     resolve({done: this.#done, value: undefined})
-    //                 } 
-
-    //                 if (this.subscribtions.size > 0) {
-
-    //                 }
-    //             })
-    //         }
-    //     }
-    // }
 }
